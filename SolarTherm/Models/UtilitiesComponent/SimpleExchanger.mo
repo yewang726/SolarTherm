@@ -17,13 +17,11 @@ model SimpleExchanger
   Boolean emergency_burner;
   
   Modelica.Blocks.Interfaces.RealInput HTF_in annotation(
-    Placement(visible = true, transformation(origin = {-112, -2}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-112, -2}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {0, -100}, extent = {{-20, -20}, {20, 20}}, rotation = -90), iconTransformation(origin = {4.44089e-16, -64}, extent = {{-16, -16}, {16, 16}}, rotation = 90)));
   Modelica.Blocks.Interfaces.RealOutput HTF_out annotation(
-    Placement(visible = true, transformation(origin = {110, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {110, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Interfaces.RealInput Q_in annotation(
-    Placement(visible = true, transformation(origin = {-2, 108}, extent = {{-20, -20}, {20, 20}}, rotation = -90), iconTransformation(origin = {-2, 108}, extent = {{-20, -20}, {20, 20}}, rotation = -90)));
-  Modelica.Blocks.Interfaces.RealInput HTF_rec annotation(
-    Placement(visible = true, transformation(origin = {-110, 50}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-110, 50}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {2.66454e-15, 116}, extent = {{-16, -16}, {16, 16}}, rotation = 90), iconTransformation(origin = {100, 0}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
+  Modelica.Blocks.Interfaces.RealOutput Q_out annotation(
+    Placement(visible = true, transformation(origin = {120, -2}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {2, 82}, extent = {{-20, -20}, {20, 20}}, rotation = 90)));
 equation
   if emergency_burner  then
     h_HTF_in = MedGas.h_T(gas_data, T_in_HTF_emergency);
@@ -31,7 +29,7 @@ equation
     h_HTF_in = MedGas.h_T(gas_data, T_in_HTF);
   end if;
   if HTF_in > 1e-4 then
-    h_HTF_out = Q_in/HTF_in + h_HTF_in;
+    h_HTF_out = Q_out/HTF_in + h_HTF_in;
   else
     h_HTF_out = h_HTF_in;
   end if;
@@ -50,5 +48,5 @@ equation
 
 
 annotation(
-    Icon(graphics = {Text(origin = {-4, 0}, extent = {{-70, 32}, {70, -32}}, textString = "Simple exchanger")}));
+    Icon(graphics = {Text(origin = {0, 16}, textColor = {0, 0, 255}, extent = {{-70, 32}, {70, -32}}, textString = "HX"), Rectangle(origin = {-3, 7}, extent = {{-87, 55}, {87, -55}})}, coordinateSystem(extent = {{-100, -100}, {100, 100}})));
 end SimpleExchanger;
