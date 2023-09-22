@@ -1,6 +1,6 @@
 within examples;
 
-model PV_TES
+model PV_system
   import SolarTherm.{Models,Media};
   import Modelica.SIunits.Conversions.from_degC;
   import SI = Modelica.SIunits;
@@ -79,4 +79,4 @@ protected
 	</ul>
 	</html>"),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));
-end PV_TES;
+end PV_system;
