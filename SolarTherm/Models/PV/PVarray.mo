@@ -22,7 +22,7 @@ model PVarray
 	parameter Real PV_Target_default_value = 16558080 "Default dummy value";
 	
 	
-	parameter SI.Power PV_Target = 6e6 "Nameplate capacity of plant" annotation(Dialog(group = "Plant design"));
+	parameter SI.Power PV_Target = 6e6 "Nameplate AC capacity of plant" annotation(Dialog(group = "Plant design"));
 	parameter SI.Power PV_Target_final = if PV_Target > 5e5 then PV_Target else PV_Target_default_value "PV target can be 0. This variable is to handle PV Target = 0";
 	parameter SI.Power f_soil = 0.95 "External shading and soil factor" annotation(Dialog(group = "Plant design"));
 	parameter SI.Angle ele_min = 0.0872665 "Minimum elevation angle below which the PV will shut down (in radian)";
