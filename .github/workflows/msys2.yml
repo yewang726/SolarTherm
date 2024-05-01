@@ -56,13 +56,14 @@ jobs:
     - name: Install OpenModelica 1.19
       run: |
         mkdir ~/omc-repo && cd ~/omc-repo
-        wget -qO- "https://cloudstor.aarnet.edu.au/plus/s/ex7S4y8QzlDjQCY/download" | bsdtar -xvf-
+        wget -qO- "https://github.com/yewang726/SolarTherm/archive/refs/tags/omc-dakota-solstice-installation.tar.gz" | bsdtar -xvf-
         echo -e "[openmodelica]\nSigLevel=Never\nServer=file://$PWD" >> /etc/pacman.conf
         pacboy -Sy --noconfirm omc:p openmodelica-msl:p
         echo "REVIEW INSTALLED OMC VERSION..."
         omc --version
 #old path: wget -qO- "https://cloudstor.aarnet.edu.au/plus/s/VBZETOzDPK51Ywr/download" | bsdtar -xvf-
-        
+
+      
     - name: Install Solstice
       run: |
         wget https://github.com/anustg/solstice-scripts/releases/download/v0.9.0-3/solstice-0.9.0.exe
