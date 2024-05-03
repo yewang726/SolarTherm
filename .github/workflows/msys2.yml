@@ -57,7 +57,7 @@ jobs:
       run: |
         mkdir ~/omc-repo && cd ~/omc-repo
 
-        echo -e "[openmodelica]\nSigLevel=Never\nServer=https://github.com/yewang726/SolarTherm/releases/tag/omc-dakota-solstice-installation" >> /etc/pacman.conf
+        echo -e "[openmodelica]\nSigLevel=Never\nServer=https://github.com/yewang726/test-gitpage.github.io/blob/main/omc-mingw64/" >> /etc/pacman.conf
         pacboy -Sy --noconfirm omc:p openmodelica-msl:p
         echo "REVIEW INSTALLED OMC VERSION..."
         omc --version
